@@ -169,8 +169,8 @@
 
 		const moduleRE = /(import.*?)('|")(.*?)('|")/g;
 
-		// convert https://threejs.org/build/three.module.js -> https://unpkg.com/three@<version>
-		// convert https://threejs.org/examples/jsm/.?? -> https://unpkg.com/three@<version>/examples/jsm/.??
+		// convert https://alxprd.github.io/three.js/build/three.module.js -> https://unpkg.com/three@<version>
+		// convert https://alxprd.github.io/three.js/examples/jsm/.?? -> https://unpkg.com/three@<version>/examples/jsm/.??
 
 		if ( ! version ) {
 

@@ -5,7 +5,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@threejs">
     <meta name="twitter:title" content="Three.js – Brouillard">
-    <meta property="og:image" content="https://threejs.org/files/share.png">
+    <meta property="og:image" content="https://alxprd.github.io/three.js/files/share.png">
     <link rel="shortcut icon" href="../../files/favicon_white.ico" media="(prefers-color-scheme: dark)">
     <link rel="shortcut icon" href="../../files/favicon.ico" media="(prefers-color-scheme: light)">
 
@@ -32,7 +32,7 @@
         <div class="lesson-main">
           <p>Cet article fait partie d'une série consacrée à Three.js dont le premier article s'intitule <a href="fundamentals.html">Principes de base</a>.
 Si vous ne l'avez pas encore lu, vous devriez commencer par lui. Si, également, vous n'avez pas lu l'article concernant <a href="cameras.html">les caméras</a>, lisez-le avant de poursuivre.</p>
-<p>Le brouillard dans un moteur 3D est généralement un moyen d'atténuer les couleurs de la scène vers une couleur désirée en fonction de la distance par rapport à la caméra. Dans Three.js, vous pouvez ajouter du brouillard en crééant dans la propriété <a href="/docs/#api/en/scenes/Scene#fog"><code class="notranslate" translate="no">fog</code></a> de votre scène, soit un objet <a href="https://threejs.org/docs/#api/en/scenes/Fog"><code class="notranslate" translate="no">Fog</code></a> soit un objet <a href="https://threejs.org/docs/#api/en/scenes/FogExp2"><code class="notranslate" translate="no">FogExp2</code></a>.</p>
+<p>Le brouillard dans un moteur 3D est généralement un moyen d'atténuer les couleurs de la scène vers une couleur désirée en fonction de la distance par rapport à la caméra. Dans Three.js, vous pouvez ajouter du brouillard en crééant dans la propriété <a href="/docs/#api/en/scenes/Scene#fog"><code class="notranslate" translate="no">fog</code></a> de votre scène, soit un objet <a href="https://alxprd.github.io/three.js/docs/#api/en/scenes/Fog"><code class="notranslate" translate="no">Fog</code></a> soit un objet <a href="https://alxprd.github.io/three.js/docs/#api/en/scenes/FogExp2"><code class="notranslate" translate="no">FogExp2</code></a>.</p>
 <p><a href="/docs/#api/en/scenes/Fog"><code class="notranslate" translate="no">Fog</code></a> permet de définir les paramètres <code class="notranslate" translate="no">near</code> et <code class="notranslate" translate="no">far</code> en tant que distance par rapport à la caméra. Ce qui se trouve entre la caméra et <code class="notranslate" translate="no">near</code> n'est pas affecté par le brouillard.
 Ce qui est au-delà de <code class="notranslate" translate="no">far</code> est complètement dans le brouillard. Ce qui se trouve entre les deux, est altéré par le brouillard.</p>
 <p>Il y a aussi <a href="/docs/#api/en/scenes/FogExp2"><code class="notranslate" translate="no">FogExp2</code></a> qui croît de façon exponentielle en fonction de la distance de la caméra.</p>

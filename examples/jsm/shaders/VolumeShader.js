@@ -28,7 +28,7 @@ const VolumeRenderShader1 = {
 
 		void main() {
 				// Prepare transforms to map to "camera view". See also:
-				// https://threejs.org/docs/#api/renderers/webgl/WebGLProgram
+				// https://alxprd.github.io/three.js/docs/#api/renderers/webgl/WebGLProgram
 				mat4 viewtransformf = modelViewMatrix;
 				mat4 viewtransformi = inverse(modelViewMatrix);
 

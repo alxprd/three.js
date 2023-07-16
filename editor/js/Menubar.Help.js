@@ -49,7 +49,7 @@ function MenubarHelp( editor ) {
 	option.setTextContent( strings.getKey( 'menubar/help/about' ) );
 	option.onClick( function () {
 
-		window.open( 'https://threejs.org', '_blank' );
+		window.open( 'https://alxprd.github.io/three.js', '_blank' );
 
 	} );
 	options.add( option );

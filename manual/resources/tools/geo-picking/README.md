@@ -1,8 +1,8 @@
 # Geo Picking Data
 
 These tools were used to generate data for both
-[the article on aligning HTML elements to 3D](https://threejs.org/manual/en/align-html-elements-to-3d.html)
-and [the article on using indexed textures for picking and color](https://threejs.org/manual/en/indexed-textures.html)
+[the article on aligning HTML elements to 3D](https://alxprd.github.io/three.js/manual/en/align-html-elements-to-3d.html)
+and [the article on using indexed textures for picking and color](https://alxprd.github.io/three.js/manual/en/indexed-textures.html)
 
 I'm not going to go into details on how they work but you can look inside
 and see them draw the images and extract the data. Maybe you can use them

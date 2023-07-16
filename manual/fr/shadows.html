@@ -5,7 +5,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@threejs">
     <meta name="twitter:title" content="Three.js – Les ombres dans ">
-    <meta property="og:image" content="https://threejs.org/files/share.png">
+    <meta property="og:image" content="https://alxprd.github.io/three.js/files/share.png">
     <link rel="shortcut icon" href="../../files/favicon_white.ico" media="(prefers-color-scheme: dark)">
     <link rel="shortcut icon" href="../../files/favicon.ico" media="(prefers-color-scheme: light)">
 
@@ -49,7 +49,7 @@ L'<a href="cameras.html">article précédent qui s'intéressait caméras</a> est
 <pre class="prettyprint showlinemods notranslate lang-js" translate="no">const scene = new THREE.Scene();
 +scene.background = new THREE.Color('white');
 </pre>
-<p>Ensuite, nous allons configurer le même sol en damier, mais cette fois, nous utilisons un <a href="https://threejs.org/docs/#api/en/materials/MeshBasicMaterial"><code class="notranslate" translate="no">MeshBasicMaterial</code></a> car nous n'avons pas besoin d'éclairage pour le sol.</p>
+<p>Ensuite, nous allons configurer le même sol en damier, mais cette fois, nous utilisons un <a href="https://alxprd.github.io/three.js/docs/#api/en/materials/MeshBasicMaterial"><code class="notranslate" translate="no">MeshBasicMaterial</code></a> car nous n'avons pas besoin d'éclairage pour le sol.</p>
 <pre class="prettyprint showlinemods notranslate lang-js" translate="no">+const loader = new THREE.TextureLoader();
 
 {
@@ -128,7 +128,7 @@ for (let i = 0; i &lt; numSpheres; ++i) {
   sphereShadowBases.push({base, sphereMesh, shadowMesh, y: sphereMesh.position.y});
 }
 </pre>
-<p>Nous avons installé 2 lumières. L'un est un <a href="https://threejs.org/docs/#api/en/lights/HemisphereLight"><code class="notranslate" translate="no">HemisphereLight</code></a> avec une intensité réglée sur 2 pour vraiment illuminer les choses.</p>
+<p>Nous avons installé 2 lumières. L'un est un <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/HemisphereLight"><code class="notranslate" translate="no">HemisphereLight</code></a> avec une intensité réglée sur 2 pour vraiment illuminer les choses.</p>
 <pre class="prettyprint showlinemods notranslate lang-js" translate="no">{
   const skyColor = 0xB1E1FF;  // bleu
   const groundColor = 0xB97A20;  // orange brun
@@ -148,7 +148,7 @@ for (let i = 0; i &lt; numSpheres; ++i) {
   scene.add(light.target);
 }
 </pre>
-<p>Il rendrait tel quel mais animons les sphères. Pour chaque sphère, ombre, jeu de base, nous déplaçons la base dans le plan xz, nous déplaçons la sphère de haut en bas en utilisant <a href="https://threejs.org/docs/#api/en/math/Math.abs(Math.sin(time"><code class="notranslate" translate="no">Math.abs(Math.sin(time))</code></a>)) qui nous donne une animation rebondissante. Et, nous avons également défini l'opacité du matériau d'ombre de sorte qu'à mesure que chaque sphère monte, son ombre s'estompe.</p>
+<p>Il rendrait tel quel mais animons les sphères. Pour chaque sphère, ombre, jeu de base, nous déplaçons la base dans le plan xz, nous déplaçons la sphère de haut en bas en utilisant <a href="https://alxprd.github.io/three.js/docs/#api/en/math/Math.abs(Math.sin(time"><code class="notranslate" translate="no">Math.abs(Math.sin(time))</code></a>)) qui nous donne une animation rebondissante. Et, nous avons également défini l'opacité du matériau d'ombre de sorte qu'à mesure que chaque sphère monte, son ombre s'estompe.</p>
 <pre class="prettyprint showlinemods notranslate lang-js" translate="no">function render(time) {
   time *= 0.001;  // convertir en secondes
 
@@ -219,7 +219,7 @@ mesh.receiveShadow = true;
 
 <p></p>
 <p>Que s'est-il passé? Pourquoi des parties des ombres manquent-elles ?</p>
-<p>C'est parce que les shadow maps sont créées en rendant la scène du point de vue de la lumière. C'est comme si il y avait une caméra dans la <a href="https://threejs.org/docs/#api/en/lights/DirectionalLight"><code class="notranslate" translate="no">DirectionalLight</code></a> qui regardait sa cible. Tout comme <a href="cameras.html">la caméra de l'article précédent</a>, la 'caméra de la lumière' définit une zone à l'intérieur de laquelle les ombres sont projetées. Dans l'exemple ci-dessus, cette zone est trop petite.</p>
+<p>C'est parce que les shadow maps sont créées en rendant la scène du point de vue de la lumière. C'est comme si il y avait une caméra dans la <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/DirectionalLight"><code class="notranslate" translate="no">DirectionalLight</code></a> qui regardait sa cible. Tout comme <a href="cameras.html">la caméra de l'article précédent</a>, la 'caméra de la lumière' définit une zone à l'intérieur de laquelle les ombres sont projetées. Dans l'exemple ci-dessus, cette zone est trop petite.</p>
 <p>Afin de bien visualiser cette zone, ajoutons un <a href="/docs/#api/en/helpers/CameraHelper"><code class="notranslate" translate="no">CameraHelper</code></a> à la scène.</p>
 <pre class="prettyprint showlinemods notranslate lang-js" translate="no">const cameraHelper = new THREE.CameraHelper(light.shadow.camera);
 scene.add(cameraHelper);
@@ -233,7 +233,7 @@ scene.add(cameraHelper);
 <p></p>
 <p>Ajustez la valeur x cible dans les deux sens et il devrait être assez clair que seul ce qui se trouve à l'intérieur de la boîte de la caméra d'ombre de la lumière est l'endroit où les ombres sont dessinées.</p>
 <p>Nous pouvons ajuster la taille de cette boîte en ajustant la caméra d'ombre de la lumière.</p>
-<p>Ajoutons quelques paramètres à lil-gui pour ajuster les ombres. Étant donné qu'une <a href="https://threejs.org/docs/#api/en/lights/DirectionalLight"><code class="notranslate" translate="no">DirectionalLight</code></a> représente la lumière allant dans une direction parallèle, la <a href="https://threejs.org/docs/#api/en/lights/DirectionalLight"><code class="notranslate" translate="no">DirectionalLight</code></a> utilise une <a href="https://threejs.org/docs/#api/en/cameras/OrthographicCamera"><code class="notranslate" translate="no">OrthographicCamera</code></a> pour sa caméra d'ombre. Nous avons expliqué le fonctionnement d'une caméra orthographique dans <a href="cameras.html">l'article précédent sur les caméras</a>.</p>
+<p>Ajoutons quelques paramètres à lil-gui pour ajuster les ombres. Étant donné qu'une <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/DirectionalLight"><code class="notranslate" translate="no">DirectionalLight</code></a> représente la lumière allant dans une direction parallèle, la <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/DirectionalLight"><code class="notranslate" translate="no">DirectionalLight</code></a> utilise une <a href="https://alxprd.github.io/three.js/docs/#api/en/cameras/OrthographicCamera"><code class="notranslate" translate="no">OrthographicCamera</code></a> pour sa caméra d'ombre. Nous avons expliqué le fonctionnement d'une caméra orthographique dans <a href="cameras.html">l'article précédent sur les caméras</a>.</p>
 <p>Pour rappel, une <a href="/docs/#api/en/cameras/OrthographicCamera"><code class="notranslate" translate="no">OrthographicCamera</code></a> définit son <em>frustum</em> par ses propriètès <code class="notranslate" translate="no">left</code>, <code class="notranslate" translate="no">right</code>, <code class="notranslate" translate="no">top</code>, <code class="notranslate" translate="no">bottom</code>, <code class="notranslate" translate="no">near</code>, <code class="notranslate" translate="no">far</code> et <code class="notranslate" translate="no">zoom</code>.</p>
 <p>Créons à nouveau un helper pour lil-gui. Appelons-le <code class="notranslate" translate="no">DimensionGUIHelper</code>
 et passons-lui un objet et 2 propriétés. Il dispose d'une propriété que lil-gui peut ajuster et en réponse définit les deux propriétés, une positive et une négative.
@@ -331,7 +331,7 @@ also blur the result
 
 
 -->
-<p>Et enfin il y a les ombres avec un <a href="https://threejs.org/docs/#api/en/lights/PointLight"><code class="notranslate" translate="no">PointLight</code></a>. Étant donné qu'un <a href="https://threejs.org/docs/#api/en/lights/PointLight"><code class="notranslate" translate="no">PointLight</code></a> brille dans toutes les directions, les seuls paramètres pertinents sont <code class="notranslate" translate="no">near</code> et <code class="notranslate" translate="no">far</code>. Sinon, l'ombre PointLight est effectivement constituée de 6 ombres <a href="https://threejs.org/docs/#api/en/lights/SpotLight"><code class="notranslate" translate="no">SpotLight</code></a>, chacune pointant vers la face d'un cube autour de la lumière. Cela signifie que les ombres <a href="https://threejs.org/docs/#api/en/lights/PointLight"><code class="notranslate" translate="no">PointLight</code></a> sont beaucoup plus lentes car la scène entière doit être dessinée 6 fois, une pour chaque direction.</p>
+<p>Et enfin il y a les ombres avec un <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/PointLight"><code class="notranslate" translate="no">PointLight</code></a>. Étant donné qu'un <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/PointLight"><code class="notranslate" translate="no">PointLight</code></a> brille dans toutes les directions, les seuls paramètres pertinents sont <code class="notranslate" translate="no">near</code> et <code class="notranslate" translate="no">far</code>. Sinon, l'ombre PointLight est effectivement constituée de 6 ombres <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/SpotLight"><code class="notranslate" translate="no">SpotLight</code></a>, chacune pointant vers la face d'un cube autour de la lumière. Cela signifie que les ombres <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/PointLight"><code class="notranslate" translate="no">PointLight</code></a> sont beaucoup plus lentes car la scène entière doit être dessinée 6 fois, une pour chaque direction.</p>
 <p>Mettons un cadre autour de notre scène afin que nous puissions voir des ombres sur les murs et le plafond. Nous allons définir la propriété <code class="notranslate" translate="no">side</code> du matériau sur <code class="notranslate" translate="no">THREE.BackSide</code> afin de rendre l'intérieur de la boîte au lieu de l'extérieur. Comme le sol, nous ne le paramétrons pour recevoir des ombres. Nous allons également définir la position de la boîte de sorte que son fond soit légèrement en dessous du sol afin d'éviter un problème de z-fighting.</p>
 <pre class="prettyprint showlinemods notranslate lang-js" translate="no">{
   const cubeSize = 30;

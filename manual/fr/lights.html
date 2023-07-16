@@ -5,7 +5,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@threejs">
     <meta name="twitter:title" content="Three.js – Lumières en ">
-    <meta property="og:image" content="https://threejs.org/files/share.png">
+    <meta property="og:image" content="https://alxprd.github.io/three.js/files/share.png">
     <link rel="shortcut icon" href="../../files/favicon_white.ico" media="(prefers-color-scheme: dark)">
     <link rel="shortcut icon" href="../../files/favicon.ico" media="(prefers-color-scheme: light)">
 
@@ -309,8 +309,8 @@ en radians. Utilisons notre <code class="notranslate" translate="no">DegRadHelpe
 <p>Remarquez qu'avec la <code class="notranslate" translate="no">penumbra</code> par défaut à 0, le projecteur a un bord très net alors que lorsque vous l'ajustez à 1, le bord devient flou.</p>
 <p>Il peut être difficile de voir le <em>cône</em> des spotlight. C'est parce qu'il se trouve sous le sol. Raccourcissez la distance à environ 5 et vous verrez l'extrémité ouverte du cône.</p>
 <h2 id="-rectarealight-"><a href="/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a></h2>
-<p>Il existe un autre type de lumière, la <a href="https://threejs.org/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a>, qui ressemble à une zone de lumière rectangulaire comme une longue lampe fluorescente ou peut-être une lucarne dépolie dans un plafond.</p>
-<p>Le <a href="https://threejs.org/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a> ne fonctionne qu'avec les <a href="https://threejs.org/docs/#api/en/materials/MeshStandardMaterial"><code class="notranslate" translate="no">MeshStandardMaterial</code></a> et <a href="https://threejs.org/docs/#api/en/materials/MeshPhysicalMaterial"><code class="notranslate" translate="no">MeshPhysicalMaterial</code></a> donc changeons tous nos matériaux en <a href="/docs/#api/en/materials/MeshStandardMaterial"><code class="notranslate" translate="no">MeshStandardMaterial</code></a></p>
+<p>Il existe un autre type de lumière, la <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a>, qui ressemble à une zone de lumière rectangulaire comme une longue lampe fluorescente ou peut-être une lucarne dépolie dans un plafond.</p>
+<p>Le <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a> ne fonctionne qu'avec les <a href="https://alxprd.github.io/three.js/docs/#api/en/materials/MeshStandardMaterial"><code class="notranslate" translate="no">MeshStandardMaterial</code></a> et <a href="https://alxprd.github.io/three.js/docs/#api/en/materials/MeshPhysicalMaterial"><code class="notranslate" translate="no">MeshPhysicalMaterial</code></a> donc changeons tous nos matériaux en <a href="/docs/#api/en/materials/MeshStandardMaterial"><code class="notranslate" translate="no">MeshStandardMaterial</code></a></p>
 <pre class="prettyprint showlinemods notranslate lang-js" translate="no">  ...
 
   const planeGeo = new THREE.PlaneGeometry(planeSize, planeSize);
@@ -344,7 +344,7 @@ en radians. Utilisons notre <code class="notranslate" translate="no">DegRadHelpe
   scene.add(mesh);
 }
 </pre>
-<p>Pour utiliser <a href="https://threejs.org/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a> nous devons importer <a href="https://threejs.org/docs/#api/en/helpers/RectAreaLightHelper"><code class="notranslate" translate="no">RectAreaLightHelper</code></a> pour nous aider à voir la lumière.</p>
+<p>Pour utiliser <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a> nous devons importer <a href="https://alxprd.github.io/three.js/docs/#api/en/helpers/RectAreaLightHelper"><code class="notranslate" translate="no">RectAreaLightHelper</code></a> pour nous aider à voir la lumière.</p>
 <pre class="prettyprint showlinemods notranslate lang-js" translate="no">import * as THREE from 'three';
 +import {RectAreaLightUniformsLib} from 'three/addons/lights/RectAreaLightUniformsLib.js';
 +import {RectAreaLightHelper} from 'three/addons/helpers/RectAreaLightHelper.js';
@@ -369,7 +369,7 @@ scene.add(light);
 *const helper = new RectAreaLightHelper(light);
 *light.add(helper);
 </pre>
-<p>Une chose à noter est que contrairement au <a href="https://threejs.org/docs/#api/en/lights/DirectionalLight"><code class="notranslate" translate="no">DirectionalLight</code></a> et à la <a href="https://threejs.org/docs/#api/en/lights/SpotLight"><code class="notranslate" translate="no">SpotLight</code></a>, la <a href="https://threejs.org/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a> n'utilise pas de cible. Elle utilise juste sa rotation. Une autre chose à noter est que le 'helper' doit être un enfant de la lumière. Ce n'est pas un enfant de la scène comme les autres 'helpers'.</p>
+<p>Une chose à noter est que contrairement au <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/DirectionalLight"><code class="notranslate" translate="no">DirectionalLight</code></a> et à la <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/SpotLight"><code class="notranslate" translate="no">SpotLight</code></a>, la <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a> n'utilise pas de cible. Elle utilise juste sa rotation. Une autre chose à noter est que le 'helper' doit être un enfant de la lumière. Ce n'est pas un enfant de la scène comme les autres 'helpers'.</p>
 <p>Ajustons-la également à lil-gui. Nous allons le faire pour que nous puissions faire pivoter la lumière et ajuster sa <code class="notranslate" translate="no">width</code> et sa <code class="notranslate" translate="no">height</code></p>
 <pre class="prettyprint showlinemods notranslate lang-js" translate="no">const gui = new GUI();
 gui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('color');
@@ -389,7 +389,7 @@ makeXYZGUI(gui, light.position, 'position');
 </div>
 
 <p></p>
-<p>Une chose que nous n'avons pas vu, c'est qu'il existe un paramètre sur le <a href="https://threejs.org/docs/#api/en/renderers/WebGLRenderer"><code class="notranslate" translate="no">WebGLRenderer</code></a> appelé <code class="notranslate" translate="no">physicalCorrectLights</code>. Il affecte la façon dont la lumière tombe en tant que distance de la lumière. Cela n'affecte que <a href="https://threejs.org/docs/#api/en/lights/PointLight"><code class="notranslate" translate="no">PointLight</code></a> et <a href="https://threejs.org/docs/#api/en/lights/SpotLight"><code class="notranslate" translate="no">SpotLight</code></a>. <a href="https://threejs.org/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a> le fait automatiquement.</p>
+<p>Une chose que nous n'avons pas vu, c'est qu'il existe un paramètre sur le <a href="https://alxprd.github.io/three.js/docs/#api/en/renderers/WebGLRenderer"><code class="notranslate" translate="no">WebGLRenderer</code></a> appelé <code class="notranslate" translate="no">physicalCorrectLights</code>. Il affecte la façon dont la lumière tombe en tant que distance de la lumière. Cela n'affecte que <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/PointLight"><code class="notranslate" translate="no">PointLight</code></a> et <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/SpotLight"><code class="notranslate" translate="no">SpotLight</code></a>. <a href="https://alxprd.github.io/three.js/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a> le fait automatiquement.</p>
 <p>Pour les lumières, l'idée de base est de ne pas définir de distance pour qu'elles s'éteignent, et vous ne définissez pas <code class="notranslate" translate="no">intensity</code>. Au lieu de cela, vous définissez la <a href="/docs/#api/en/lights/PointLight#power"><code class="notranslate" translate="no">power</code></a> de la lumière en lumens, puis three.js utilisera des calculs physiques comme de vraies lumières. Les unités de three.js dans ce cas sont des mètres et une ampoule de 60w aurait environ 800 lumens. Il y a aussi une propriété <a href="/docs/#api/en/lights/PointLight#decay"><code class="notranslate" translate="no">decay</code></a>. Elle doit être réglé sur 2 pour une apparence réaliste.</p>
 <p>Testons ça.</p>
 <p>D'abord, définissons <code class="notranslate" translate="no">physicallyCorrectLights</code> sur true</p>

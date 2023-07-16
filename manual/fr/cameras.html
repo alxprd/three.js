@@ -5,7 +5,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@threejs">
     <meta name="twitter:title" content="Three.js – Caméras dans ">
-    <meta property="og:image" content="https://threejs.org/files/share.png">
+    <meta property="og:image" content="https://alxprd.github.io/three.js/files/share.png">
     <link rel="shortcut icon" href="../../files/favicon_white.ico" media="(prefers-color-scheme: dark)">
     <link rel="shortcut icon" href="../../files/favicon.ico" media="(prefers-color-scheme: light)">
 
@@ -34,7 +34,7 @@
 Le premier article s'intitule <a href="fundamentals.html">Principes de base</a>.
 Si vous ne l'avez pas encore lu, vous voudriez peut-être commencer par là.</p>
 <p>Parlons des caméras dans Three.js. Nous en avons déjà parlé dans <a href="fundamentals.html">le premier article</a> mais ici nous allons entrer dans le détail.</p>
-<p>La caméra la plus courante dans Three.js et celle que nous avons utilisée jusqu'à présent, la <a href="https://threejs.org/docs/#api/en/cameras/PerspectiveCamera"><code class="notranslate" translate="no">PerspectiveCamera</code></a>. Elle donne une vue 3D où les choses lointaines semblent plus petites que les plus proches.</p>
+<p>La caméra la plus courante dans Three.js et celle que nous avons utilisée jusqu'à présent, la <a href="https://alxprd.github.io/three.js/docs/#api/en/cameras/PerspectiveCamera"><code class="notranslate" translate="no">PerspectiveCamera</code></a>. Elle donne une vue 3D où les choses lointaines semblent plus petites que les plus proches.</p>
 <p>La <a href="/docs/#api/en/cameras/PerspectiveCamera"><code class="notranslate" translate="no">PerspectiveCamera</code></a> définit un <em>frustum</em>. <a href="https://fr.wikipedia.org/wiki/Tronc_(g%C3%A9om%C3%A9trie">Un frustum (tronc) est une forme pyramidale solide dont la pointe est coupée</a>). Par nom de solide, j'entends par exemple un cube, un cône, une sphère, un cylindre et un frustum sont tous des noms de différents types de solides.</p>
 <div class="spread">
   <div><div data-diagram="shapeCube"></div><div>cube</div></div>
@@ -293,7 +293,7 @@ const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 <p>Juste au cas où le problème ne s'afficherait pas sur votre machine, voici ce que je vois sur la mienne.</p>
 <div class="threejs_center"><img src="../resources/images/z-fighting.png" style="width: 570px;"></div>
 
-<p>Une solution consiste à indiquer à Three.js d'utiliser une méthode différente pour calculer quels pixels sont devant et lesquels sont derrière. Nous pouvons le faire en activant <code class="notranslate" translate="no">logarithmicDepthBuffer</code> lorsque nous créons le <a href="https://threejs.org/docs/#api/en/renderers/WebGLRenderer"><code class="notranslate" translate="no">WebGLRenderer</code></a></p>
+<p>Une solution consiste à indiquer à Three.js d'utiliser une méthode différente pour calculer quels pixels sont devant et lesquels sont derrière. Nous pouvons le faire en activant <code class="notranslate" translate="no">logarithmicDepthBuffer</code> lorsque nous créons le <a href="https://alxprd.github.io/three.js/docs/#api/en/renderers/WebGLRenderer"><code class="notranslate" translate="no">WebGLRenderer</code></a></p>
 <pre class="prettyprint showlinemods notranslate lang-js" translate="no">-const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
 +const renderer = new THREE.WebGLRenderer({
 +  antialias: true,
@@ -312,7 +312,7 @@ const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 <p>Une autre raison de ne pas choisir cette solution est qu'elle peut être nettement plus lente que la solution standard.</p>
 <p>Même avec cette solution, la résolution est encore limitée. Rendez <code class="notranslate" translate="no">near</code> encore plus petit ou <code class="notranslate" translate="no">far</code> plus grand et vous finirez par rencontrer les mêmes problèmes.</p>
 <p>Cela signifie que vous devez toujours faire un effort pour choisir un paramètre <code class="notranslate" translate="no">near</code> et <code class="notranslate" translate="no">far</code> qui correspond à votre cas d'utilisation. Placez <code class="notranslate" translate="no">near</code> aussi loin que possible de la caméra et rien ne disparaîtra. Placez <code class="notranslate" translate="no">far</code> aussi près que possible de la caméra et, de même, tout restera visible. Si vous essayez de dessiner une scène géante et de montrer en gros plan un visage de façon à voir ses cils, tandis qu'en arrière-plan il possible de voir les montagnes à 50 kilomètres de distance, vous devrez en trouver d'autres solutions créatives, nous-y reviendrons peut-être plus tard. Pour l'instant, sachez que vous devez prendre soin de choisir des valeurs proches et éloignées appropriées à vos besoins.</p>
-<p>La deuxième caméra la plus courante est l'<a href="https://threejs.org/docs/#api/en/cameras/OrthographicCamera"><code class="notranslate" translate="no">OrthographicCamera</code></a>. Plutôt que de définir un frustum, il spécifie une boîte avec les paramètres <code class="notranslate" translate="no">left</code>, <code class="notranslate" translate="no">right</code>, <code class="notranslate" translate="no">top</code>, <code class="notranslate" translate="no">bottom</code>, <code class="notranslate" translate="no">near</code> et <code class="notranslate" translate="no">far</code>. Comme elle projette une boîte, il n'y a pas de perspective.</p>
+<p>La deuxième caméra la plus courante est l'<a href="https://alxprd.github.io/three.js/docs/#api/en/cameras/OrthographicCamera"><code class="notranslate" translate="no">OrthographicCamera</code></a>. Plutôt que de définir un frustum, il spécifie une boîte avec les paramètres <code class="notranslate" translate="no">left</code>, <code class="notranslate" translate="no">right</code>, <code class="notranslate" translate="no">top</code>, <code class="notranslate" translate="no">bottom</code>, <code class="notranslate" translate="no">near</code> et <code class="notranslate" translate="no">far</code>. Comme elle projette une boîte, il n'y a pas de perspective.</p>
 <p>Changeons notre exemple précédent pour utiliser une <a href="/docs/#api/en/cameras/OrthographicCamera"><code class="notranslate" translate="no">OrthographicCamera</code></a> dans la première vue.</p>
 <p>D'abord, paramétrons notre <a href="/docs/#api/en/cameras/OrthographicCamera"><code class="notranslate" translate="no">OrthographicCamera</code></a>.</p>
 <pre class="prettyprint showlinemods notranslate lang-js" translate="no">const left = -1;
